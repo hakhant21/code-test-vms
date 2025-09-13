@@ -75,7 +75,14 @@ export default function Index({ products }) {
                                                 <div className="flex justify-center items-center">
                                                     <div className="">
                                                         <button
-                                                            onClick={() => router.visit(route("products.show", product.id))}
+                                                            onClick={() =>
+                                                                router.visit(
+                                                                    route(
+                                                                        "products.show",
+                                                                        product.id
+                                                                    )
+                                                                )
+                                                            }
                                                             className="py-1 px-2 rounded bg-indigo-500 mx-2 hover:bg-indigo-600"
                                                         >
                                                             Show
@@ -83,7 +90,14 @@ export default function Index({ products }) {
                                                     </div>
                                                     <div className="">
                                                         <button
-                                                            onClick={() => router.visit(route("products.edit", product.id))}
+                                                            onClick={() =>
+                                                                router.visit(
+                                                                    route(
+                                                                        "products.edit",
+                                                                        product.id
+                                                                    )
+                                                                )
+                                                            }
                                                             className="py-1 px-2 rounded bg-yellow-500 mx-2 hover:bg-yellow-600"
                                                         >
                                                             Edit
@@ -108,9 +122,9 @@ export default function Index({ products }) {
                                 </tbody>
                             </table>
 
-                            {products.links && (
-                                <div className="w-full mt-4">
-                                    <Pagination links={products.links} />
+                            {products.meta.links && (
+                                <div className="flex justify-end">
+                                    <Pagination links={products.meta.links} />
                                 </div>
                             )}
                         </div>

@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Products\ProductResource;
 
 class PurchaseController extends Controller
 {
@@ -31,11 +32,11 @@ class PurchaseController extends Controller
                 $sortDirection = 'asc';
             }
 
-            $products = $query->orderBy($sortField, $sortDirection)->paginate(10)->withQueryString();
+            $products = $query->orderBy($sortField, $sortDirection)->paginate(9)->withQueryString();
 
             return Inertia::render('Guest/Welcome', [
-                'products' => $products,
-                'filters' => $request->only(['search', 'sort', 'direction'])
+                'products' => ProductResource::collection($products),
+                'filters' => $request->only(['search', 'sort', 'direction', 'page'])
             ]);
         } catch (Exception $e) {
             return redirect()->back()->with('errors', $e->getMessage());

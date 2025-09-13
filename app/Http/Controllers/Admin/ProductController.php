@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Products\StoreRequest;
+use App\Http\Resources\Products\ProductResource;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,7 @@ class ProductController extends Controller
         $products = $query->paginate(10)->withQueryString();
 
         return Inertia::render('Admin/Products/Index', [
-            'products' => $products
+            'products' => ProductResource::collection($products)
         ]);
     }
 

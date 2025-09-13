@@ -5,6 +5,8 @@ import Pagination from "@/Components/Pagination";
 import ProductCard from "@/Components/Products/ProductCard";
 
 export default function Welcome({ products, filters }) {
+    console.log(products);
+
     const handleSearch = (e) => {
         router.get(
             route("welcome"),
@@ -47,12 +49,20 @@ export default function Welcome({ products, filters }) {
                     />
 
                     <div className="flex gap-2">
-                        <select name="sort" className="border rounded mx-2 py-1" onChange={(e) => handleSort(e.target.value)}>
+                        <select
+                            name="sort"
+                            className="border rounded mx-2 py-1"
+                            onChange={(e) => handleSort(e.target.value)}
+                        >
                             <option value="name">Name</option>
                             <option value="price">Price</option>
                         </select>
 
-                        <select name="direction" className="border rounded mx-2 py-1" onChange={(e) => handleSort(e.target.value)}>
+                        <select
+                            name="direction"
+                            className="border rounded mx-2 py-1"
+                            onChange={(e) => handleSort(e.target.value)}
+                        >
                             <option value="asc">Ascending</option>
                             <option value="desc">Descending</option>
                         </select>
@@ -65,9 +75,12 @@ export default function Welcome({ products, filters }) {
                     ))}
                 </div>
 
-                <div className="mt-6 flex gap-2">
-                    <Pagination links={products.links} />
-                </div>
+                {products.meta.links && (
+                    <div className="flex justify-end w-full">
+                        <Pagination links={products.meta.links} />
+                    </div>
+                )}
+                <div className="flex justify-end"></div>
             </div>
         </GuestLayout>
     );
