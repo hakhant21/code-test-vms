@@ -85,6 +85,18 @@ class ProductSeeder extends Seeder
                 'slug' => 'noodles',
                 'price' => 3.99,
                 'quantity_avaliable' => 0
+            ],
+            [
+                'name' => 'Coffee',
+                'slug' => 'coffee',
+                'price' => 12.99,
+                'quantity_avaliable' => 11
+            ],
+            [
+                'name' => 'Tea',
+                'slug' => 'tea',
+                'price' => 4.99,
+                'quantity_avaliable' => 21
             ]
         ];
 
