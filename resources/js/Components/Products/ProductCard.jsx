@@ -33,8 +33,8 @@ export default function ProductCard({ product }) {
                 <p>${product.price}</p>
                 <p>
                     Stock:{" "}
-                    {product.quantity_avaliable < 0
-                        ? "Out of stock"
+                    {product.quantity_avaliable <= 0
+                        ? <small className="text-red-500">Out of stock</small>
                         : product.quantity_avaliable}
                 </p>
 

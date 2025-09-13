@@ -49,6 +49,42 @@ class ProductSeeder extends Seeder
                 'slug' => 'chocolate',
                 'price' => 10.99,
                 'quantity_avaliable' => 15
+            ],
+            [
+                'name' => 'Potato Chip',
+                'slug' => 'potato-chip',
+                'price' => 9.99,
+                'quantity_avaliable' => 25
+            ],
+            [
+                'name' => 'Cake',
+                'slug' => 'cake',
+                'price' => 6.99,
+                'quantity_avaliable' => 10
+            ],
+            [
+                'name' => 'Milk',
+                'slug' => 'milk',
+                'price' => 7.99,
+                'quantity_avaliable' => 30
+            ],
+            [
+                'name' => 'Candy',
+                'slug' => 'candy',
+                'price' => 2.99,
+                'quantity_avaliable' => 35
+            ],
+            [
+                'name' => 'Ice Cream',
+                'slug' => 'ice-cream',
+                'price' => 2.99,
+                'quantity_avaliable' => 30
+            ],
+            [
+                'name' => 'Noodles',
+                'slug' => 'noodles',
+                'price' => 3.99,
+                'quantity_avaliable' => 0
             ]
         ];
 
