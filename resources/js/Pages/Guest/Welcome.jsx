@@ -5,8 +5,6 @@ import Pagination from "@/Components/Pagination";
 import ProductCard from "@/Components/Products/ProductCard";
 
 export default function Welcome({ products, filters }) {
-    console.log(products);
-
     const handleSearch = (e) => {
         router.get(
             route("welcome"),
@@ -18,14 +16,14 @@ export default function Welcome({ products, filters }) {
     const handleSort = (field) => {
         let direction = "asc";
 
-        if (filters.sort === field && filters.direction === "asc") {
+        if (filters.sort == field && filters.direction == "asc") {
             direction = "desc";
         }
 
         router.get(
             route("welcome"),
             { ...filters, sort: field, direction },
-            { preserveState: true, replace: true }
+            { preserveState: true }
         );
     };
 
@@ -56,6 +54,7 @@ export default function Welcome({ products, filters }) {
                         >
                             <option value="name">Name</option>
                             <option value="price">Price</option>
+                            <option value="quantity_avaliable">Quantity Available</option>
                         </select>
 
                         <select

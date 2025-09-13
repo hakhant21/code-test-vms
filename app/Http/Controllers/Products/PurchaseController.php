@@ -21,18 +21,10 @@ class PurchaseController extends Controller
                 $query->where('name', 'like', '%' . $request->search . '%');
             }
 
-            $sortField = $request->get('sort', 'name');
-            $sortDirection = $request->get('direction', 'asc');
+            $sort = $request->get('sort', 'name');
+            $direction = $request->get('direction', 'asc');
 
-            if (!in_array($sortField, ['name', 'price', 'quantity_available'])) {
-                $sortField = 'name';
-            }
-
-            if (!in_array($sortDirection, ['asc', 'desc'])) {
-                $sortDirection = 'asc';
-            }
-
-            $products = $query->orderBy($sortField, $sortDirection)->paginate(9)->withQueryString();
+            $products = $query->orderBy($sort, $direction)->paginate(9)->withQueryString();
 
             return Inertia::render('Guest/Welcome', [
                 'products' => ProductResource::collection($products),
